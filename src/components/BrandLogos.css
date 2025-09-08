@@ -1,0 +1,15 @@
+@import '../../node_modules/vanilla-infinite-marquee/infinite-marquee.css';
+
+.marquee-container img {
+    max-width: 120px;
+    max-height: 50px;
+    height: auto;
+    width: auto;
+    display: inline-block;
+}
+
+.marquee {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+}

@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-impacta1: #044bab;
+  --color-impacta2: #2e65af;
+  --color-impacta3: #3c6cb3;
+  --color-impacta4: #04079e;
+  --color-impacta5: #255bac;
+  --color-impacta6: #4a7abc;
+  --color-impacta7: #3268bc;
+  --color-impacta8: #0429a8;
+  --color-impacta9: #044792;
+  --color-impacta10: #0434ac;
+  --color-impacta11: #0a1f33;
+  --color-greyhover: #DDDDDD;
+  --color-bluehover: #216FE0;
+}
+
+@layer base {
+  html {
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
