@@ -1,13 +1,13 @@
 import biglogo from '../assets/biglogo.png';
 import linkedin from '../assets/linkedin.png';
 import x from '../assets/x.svg';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
     return (
         <footer className="bg-impacta11 text-white py-12">
   <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
     
-    {/* Company Info */}
     <div>
       <img src={biglogo} alt="Impacta Logo" className="h-14 mb-3 filter brightness-0 invert" />
       <p className="text-sm text-gray-300">
@@ -23,19 +23,17 @@ export default function Footer() {
       </a>
     </div>
 
-    {/* Quick Links */}
     <div>
       <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
       <ul className="space-y-2 text-sm">
-        <li><a href="#" className="hover:text-bluehover transition">Home</a></li>
-        <li><a href="#" className="hover:text-bluehover transition">About</a></li>
-        <li><a href="#" className="hover:text-bluehover transition">Products</a></li>
-        <li><a href="#" className="hover:text-bluehover transition">Sectors</a></li>
-        <li><a href="#" className="hover:text-bluehover transition">Contact</a></li>
+        <li><Link to="/" className="hover:text-bluehover transition">Home</Link></li>
+        <li><Link to="/about" className="hover:text-bluehover transition">About</Link></li>
+        <li><Link to="/services/plastic-solutions" className="hover:text-bluehover transition">Services</Link></li>
+        <li><Link to="/sectors/automotive" className="hover:text-bluehover transition">Sectors</Link></li>
+        <li><Link to="/contact" className="hover:text-bluehover transition">Contact</Link></li>
       </ul>
     </div>
 
-    {/* Contact Us */}
     <div>
       <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
       <p className="text-sm text-gray-300">Field St, Bradley, <br />Bilston WV14 8RW</p>
@@ -43,7 +41,6 @@ export default function Footer() {
       <p className="text-sm"><strong>Email:</strong> sales@impacta.co.uk</p>
     </div>
 
-    {/* Social Media */}
     <div>
       <h3 className="text-lg font-semibold mb-4">Social</h3>
       <div className="flex gap-3">
@@ -53,7 +50,6 @@ export default function Footer() {
     </div>
   </div>
 
-  {/* Bottom Bar */}
   <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
     © 2021-2025 Impacta Ltd. All rights reserved.
   </div>
