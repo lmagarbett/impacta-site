@@ -1,44 +1,37 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { MantineProvider } from "@mantine/core";
-import "@mantine/core/styles.css"; 
 import "./index.css";
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
-import ContactUs from "./ContactPage.tsx";
-import AllTeam from "./AllTeam.tsx";
-import AutomotivePage from "./pages/AutomotivePage.tsx";
-import DefensePage from "./pages/DefensePage.tsx";
-import HealthcarePage from "./pages/HealthcarePage.tsx";
-import AgriculturePage from "./pages/AgriculturePage.tsx";
-import GeneralFabricationPage from "./pages/GeneralFabricationPage.tsx";
-import PlasticSolutionsPage from "./pages/PlasticSolutionsPage.tsx";
-import SteelFabricationPage from "./pages/SteelFabricationPage.tsx";
-import PolyurethaneMouldingPage from "./pages/PolyurethaneMouldingPage.tsx";
-import IndustrialTextileSewingPage from "./pages/IndustrialTextileSewingPage.tsx";
-import RepairMaintenancePage from "./pages/RepairMaintenancePage.tsx";
-import DesignPrototypingPage from "./pages/DesignPrototypingPage.tsx";
-import AboutPage from "./pages/AboutPage.tsx";
-import TestimonialsPage from "./pages/TestimonialsPage.tsx";
+const App = lazy(() => import("./App.tsx"));
+const ContactUs = lazy(() => import("./ContactPage.tsx"));
+const AllTeam = lazy(() => import("./AllTeam.tsx"));
+const AutomotivePage = lazy(() => import("./pages/AutomotivePage.tsx"));
+const DefensePage = lazy(() => import("./pages/DefensePage.tsx"));
+const HealthcarePage = lazy(() => import("./pages/HealthcarePage.tsx"));
+const AgriculturePage = lazy(() => import("./pages/AgriculturePage.tsx"));
+const GeneralFabricationPage = lazy(() => import("./pages/GeneralFabricationPage.tsx"));
+const PlasticSolutionsPage = lazy(() => import("./pages/PlasticSolutionsPage.tsx"));
+const SteelFabricationPage = lazy(() => import("./pages/SteelFabricationPage.tsx"));
+const PolyurethaneMouldingPage = lazy(() => import("./pages/PolyurethaneMouldingPage.tsx"));
+const IndustrialTextileSewingPage = lazy(() => import("./pages/IndustrialTextileSewingPage.tsx"));
+const RepairMaintenancePage = lazy(() => import("./pages/RepairMaintenancePage.tsx"));
+const DesignPrototypingPage = lazy(() => import("./pages/DesignPrototypingPage.tsx"));
+const AboutPage = lazy(() => import("./pages/AboutPage.tsx"));
+const TestimonialsPage = lazy(() => import("./pages/TestimonialsPage.tsx"));
 import ScrollToTop from "./ScrollToTop.tsx";
-import NotFoundPage from "./pages/NotFoundPage.tsx";
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage.tsx"));
 import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <HelmetProvider>
-      <MantineProvider
-        theme={{
-          fontFamily: "Arial, Helvetica, sans-serif",
-          headings: { fontFamily: "Arial, Helvetica, sans-serif" },
-        }}
-      >
-        <BrowserRouter basename="/impacta-site">
-          <ScrollToTop />
+      <BrowserRouter basename="/impacta-site">
+        <ScrollToTop />
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading…</div>}>
           <Routes>
             <Route path="/" element={<App />} />
             <Route path="/contact" element={<ContactUs />} />
@@ -79,8 +72,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </BrowserRouter>
-      </MantineProvider>
+        </Suspense>
+      </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>
 );

@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense, useRef } from "react";
 import { Link } from "react-router-dom";
 import biglogo from "./assets/biglogo.png";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import GoogleMap from "./components/GoogleMap";
-import SalesTeam from "./components/SalesTeam";
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
+const SalesTeam = lazy(() => import("./components/SalesTeam"));
+const GoogleMapLazy = lazy(() => import("./components/GoogleMap"));
 import SEO from "./components/SEO";
 
 export default function ContactPage() {
@@ -17,6 +17,8 @@ export default function ContactPage() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState("Contact");
+  const [mapInView, setMapInView] = useState(false);
+  const mapRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -25,6 +27,26 @@ export default function ContactPage() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Defer loading the map until its section is visible
+  useEffect(() => {
+    if (!mapRef.current || mapInView) return;
+    const el = mapRef.current;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setMapInView(true);
+            observer.disconnect();
+            break;
+          }
+        }
+      },
+      { root: null, rootMargin: "200px", threshold: 0.01 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [mapInView]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -44,7 +66,9 @@ export default function ContactPage() {
         description="Speak to Impacta about bespoke component handling and packaging solutions. Call +44 01902496307 or email sales@impacta.co.uk."
         canonical="https://lmagarbett.github.io/impacta-site/contact"
       />
-      <Navbar defaultPage="Contact" />
+      <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
+        <Navbar defaultPage="Contact" />
+      </Suspense>
 
       <section
         className="relative bg-impacta12 text-white px-6 text-left overflow-hidden"
@@ -82,7 +106,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <SalesTeam />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading team…</div>}>
+        <SalesTeam />
+      </Suspense>
 
       <section className="w-full bg-white">
         <div className="max-w-7xl mx-auto mt-4 px-4 sm:px-6 text-left text-sm">
@@ -100,7 +126,17 @@ export default function ContactPage() {
 
       <section className="w-full bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <GoogleMap />
+          <div ref={mapRef} className="min-h-[360px]">
+            {mapInView ? (
+              <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading map…</div>}>
+                <GoogleMapLazy />
+              </Suspense>
+            ) : (
+              <div className="w-full h-[360px] bg-gray-100 animate-pulse rounded-lg flex items-center justify-center text-gray-500">
+                Map will load when visible…
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -219,7 +255,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

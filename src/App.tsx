@@ -1,24 +1,31 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-import herobg from "./assets/herobg.jpg";
-import impactaentrance from "./assets/impactaentrance.jpeg";
-import { useDisclosure } from "@mantine/hooks";
-import Sectors from "./components/Sectors";
-import BrandLogos from "./components/BrandLogos";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import BigClickableImagesSection from "./components/BigClickableImagesSection";
+import herobgAvif from "./assets/herobg.jpg?imagetools&w=640;1280;1920&format=avif&as=srcset";
+import herobgWebp from "./assets/herobg.jpg?imagetools&w=640;1280;1920&format=webp&as=srcset";
+import herobgJpg from "./assets/herobg.jpg?imagetools&w=640;1280;1920&format=jpeg&as=srcset";
+
+import impactaentranceAvif from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=avif&as=srcset";
+import impactaentranceWebp from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=webp&as=srcset";
+import impactaentranceJpg from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=jpeg&as=srcset";
+const Sectors = lazy(() => import("./components/Sectors"));
+const BrandLogos = lazy(() => import("./components/BrandLogos"));
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
+const BigClickableImagesSection = lazy(() => import("./components/BigClickableImagesSection"));
 import SEO from "./components/SEO";
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [chatOpen, { open, close }] = useDisclosure(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [activePage, setActivePage] = useState("Home");
   const [heroVisible, setHeroVisible] = useState(false);
 
   useEffect(() => {
     setHeroVisible(true);
+    const idle = (cb: () => void) => ("requestIdleCallback" in window ? (window as any).requestIdleCallback(cb) : setTimeout(cb, 1500));
+    idle(() => {
+      import("./components/Navbar");
+      import("./components/Footer");
+      import("./ContactPage");
+      import("./pages/AboutPage");
+    });
   }, []);
 
   return (
@@ -31,7 +38,7 @@ function App() {
         keywords={["Impacta", "packaging", "component handling", "UK manufacturing", "returnable packaging"]}
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "Organization",
+          "@type": "Organisation",
           name: "Impacta Ltd",
           url: "https://lmagarbett.github.io/impacta-site/",
           logo: "https://lmagarbett.github.io/impacta-site/logo.ico",
@@ -48,7 +55,9 @@ function App() {
         }}
       />
 
-      <Navbar defaultPage="Home" />
+      <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
+        <Navbar defaultPage="Home" />
+      </Suspense>
 
       <section
         className={`
@@ -61,11 +70,19 @@ function App() {
           paddingBottom: "14rem",
         }}
       >
-        <img
-          src={herobg}
-          alt="Hero Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-45 z-0"
-        />
+        <picture>
+          <source type="image/avif" srcSet={herobgAvif} sizes="100vw" />
+          <source type="image/webp" srcSet={herobgWebp} sizes="100vw" />
+          <img
+            srcSet={herobgJpg}
+            sizes="100vw"
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover opacity-45 z-0"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div
           className="absolute inset-0 z-10"
           style={{
@@ -125,21 +142,41 @@ function App() {
               </div>
             </div>
             <div className="flex-1 flex justify-end lg:pl-28">
-              <img
-                src={impactaentrance}
-                alt="Impacta Entrance"
-                className="rounded-lg shadow-lg w-full max-w-xs md:max-w-sm filter brightness-40 contrast-125 saturate-80 mix-blend-multiply bg-[#044bab]"
-              />
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet={impactaentranceAvif}
+                  sizes="(max-width: 768px) 90vw, 600px"
+                />
+                <source
+                  type="image/webp"
+                  srcSet={impactaentranceWebp}
+                  sizes="(max-width: 768px) 90vw, 600px"
+                />
+                <img
+                  srcSet={impactaentranceJpg}
+                  sizes="(max-width: 768px) 90vw, 600px"
+                  alt="Impacta Entrance"
+                  className="rounded-lg shadow-lg w-full max-w-xs md:max-w-sm filter brightness-40 contrast-125 saturate-80 mix-blend-multiply bg-[#044bab]"
+                  loading="lazy"
+                />
+              </picture>
             </div>
           </div>
         </div>
       </section>
 
-      <BrandLogos />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading brands…</div>}>
+        <BrandLogos />
+      </Suspense>
 
-      <BigClickableImagesSection />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sections…</div>}>
+        <BigClickableImagesSection />
+      </Suspense>
 
-      <Sectors />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sectors…</div>}>
+        <Sectors />
+      </Suspense>
 
       <section className="bg-impacta12 text-white py-12 px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -157,7 +194,9 @@ function App() {
         </Link>
       </section>
 
-      <Footer />
+      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

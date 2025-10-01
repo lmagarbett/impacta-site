@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
-import herobg2 from "../assets/herobg2.jpeg";
-import herobg3 from "../assets/herobg3.jpeg";
+import herobg2Avif from "../assets/herobg2.jpeg?imagetools&w=640;1024;1440&format=avif&as=srcset";
+import herobg2Webp from "../assets/herobg2.jpeg?imagetools&w=640;1024;1440&format=webp&as=srcset";
+import herobg2Jpg from "../assets/herobg2.jpeg?imagetools&w=640;1024;1440&format=jpeg&as=srcset";
+import herobg3Avif from "../assets/herobg3.jpeg?imagetools&w=640;1024;1440&format=avif&as=srcset";
+import herobg3Webp from "../assets/herobg3.jpeg?imagetools&w=640;1024;1440&format=webp&as=srcset";
+import herobg3Jpg from "../assets/herobg3.jpeg?imagetools&w=640;1024;1440&format=jpeg&as=srcset";
 
 const BigClickableImagesSection = () => {
   return (
@@ -10,11 +14,18 @@ const BigClickableImagesSection = () => {
           to="/services/repairs-maintenance"
           className="relative group overflow-hidden h-80 md:h-96 rounded-lg shadow-lg"
         >
-          <img
-            src={herobg2}
-            alt="Welding and Repairs"
-            className="absolute inset-0 w-full h-full object-cover opacity-45 transition-transform duration-500 group-hover:scale-105"
-          />
+          <picture>
+            <source type="image/avif" srcSet={herobg2Avif} sizes="(max-width: 768px) 100vw, 50vw" />
+            <source type="image/webp" srcSet={herobg2Webp} sizes="(max-width: 768px) 100vw, 50vw" />
+            <img
+              srcSet={herobg2Jpg}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="Welding and Repairs"
+              className="absolute inset-0 w-full h-full object-cover opacity-45 transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div
             className="absolute inset-0"
             style={{
@@ -35,16 +46,22 @@ const BigClickableImagesSection = () => {
           </div>
         </Link>
 
-        {/* Second image - Industrial Textile Sewing */}
         <Link
-          to="/services/industrial-textile-sewing" // Link to Industrial Textile Sewing service
+          to="/services/industrial-textile-sewing"
           className="relative group overflow-hidden h-80 md:h-96 rounded-lg shadow-lg"
         >
-          <img
-            src={herobg3}
-            alt="Industrial Textile Sewing"
-            className="absolute inset-0 w-full h-full object-cover opacity-45 transition-transform duration-500 group-hover:scale-105"
-          />
+          <picture>
+            <source type="image/avif" srcSet={herobg3Avif} sizes="(max-width: 768px) 100vw, 50vw" />
+            <source type="image/webp" srcSet={herobg3Webp} sizes="(max-width: 768px) 100vw, 50vw" />
+            <img
+              srcSet={herobg3Jpg}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="Industrial Textile Sewing"
+              className="absolute inset-0 w-full h-full object-cover opacity-45 transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+              decoding="async"
+            />
+          </picture>
           <div
             className="absolute inset-0"
             style={{

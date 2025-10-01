@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const sectors = [
   {
@@ -111,9 +112,8 @@ export default function Sectors() {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {sectors.map((sector, i) => (
-          <motion.a
+          <motion.div
             key={sector.title}
-            href={sector.href}
             className="p-6 border rounded-lg shadow bg-gray-50 hover:shadow-lg hover:bg-gray-100 transition-all duration-300 block relative overflow-hidden"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -124,6 +124,7 @@ export default function Sectors() {
             }}
             viewport={{ once: true, amount: 0.3 }}
           >
+            <Link to={sector.href} className="absolute inset-0" aria-label={sector.title} />
             <div className="absolute top-2 right-2 opacity-10 pointer-events-none">
               <div className="w-16 h-16 text-impacta1">{sector.icon}</div>
             </div>
@@ -133,7 +134,7 @@ export default function Sectors() {
               </h3>
               <p className="text-gray-700 text-sm">{sector.description}</p>
             </div>
-          </motion.a>
+          </motion.div>
         ))}
       </div>
     </section>

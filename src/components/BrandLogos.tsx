@@ -74,6 +74,10 @@ function BrandLogos() {
               key={index}
               src={imgSrc}
               alt={`Image ${index + 1}`}
+              loading="lazy"
+              decoding="async"
+              width={120}
+              height={50}
               style={{ margin: "0 25px" }}
             />
           ))}

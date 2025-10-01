@@ -32,7 +32,6 @@ export default function SEO({
       {noindex && <meta name="robots" content="noindex,nofollow" />}
       {canonical && <link rel="canonical" href={canonical} />}
 
-      {/* Open Graph */}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={siteName} />
       {url && <meta property="og:url" content={url} />}
@@ -40,14 +39,13 @@ export default function SEO({
       <meta property="og:description" content={description} />
       {metaImage && <meta property="og:image" content={metaImage} />}        
 
-      {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {metaImage && <meta name="twitter:image" content={metaImage} />}
 
       <meta name="theme-color" content="#044bab" />
-      <link rel="icon" type="image/x-icon" href="/logo.ico" />
+         <link rel="icon" type="image/x-icon" href="/impacta-site/logo.ico" />
       {jsonLd && (
         Array.isArray(jsonLd) ? (
           jsonLd.map((obj, i) => (
