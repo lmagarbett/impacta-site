@@ -1,6 +1,6 @@
 import ServicePageTemplate from "../components/ServicePageTemplate";
-import heroImage from "../assets/hero/steelhero.jpg";
-import serviceImage from "../assets/hero/steelabout.jpg";
+import heroImage from "../assets/hero/steelhero.JPG";
+import serviceImage from "../assets/hero/steelabout.JPG";
 
 export default function SteelFabricationPage() {
   const keyFeatures = [
