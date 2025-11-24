@@ -1,4 +1,6 @@
 import ServicePageTemplate from "../components/ServicePageTemplate";
+import serviceImage from "../assets/hero/plasticabout.jpeg";
+import heroImage from "../assets/hero/plastichero.jpeg";
 
 export default function PlasticSolutionsPage() {
   const keyFeatures = [
@@ -24,39 +26,19 @@ export default function PlasticSolutionsPage() {
     },
   ];
 
-  const processSteps = [
-    {
-      step: 1,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 2,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 3,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 4,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-  ];
+  
 
   return (
     <ServicePageTemplate
       serviceName="Plastic Solutions"
       sectorName="Plastic Solutions"
       heroTitle="Comprehensive Plastic Solutions"
-      heroDescription="Durable, reusable, and customisable containers with tailored dunnage for optimal protection and organization."
+      serviceImage={serviceImage}
+      heroImage={heroImage}
+      heroDescription="Durable, reusable, and customisable containers with tailored dunnage for optimal protection and organisation."
       mainDescription="Plastic containers with appropriate dunnage offer an efficient and versatile solution for packaging small components, providing durability, stackability, and reusability. Their availability in various materials and sizes allows for customization to meet specific product requirements, enhancing protection and organization while promoting sustainable practices through reuse.
         Our design team is available to assist customers in selecting the appropriate materials for both boxes and internal dunnage, ensuring that the solutions meet their specific needs and provide optimal protection and functionality."
       keyFeatures={keyFeatures}
-      processSteps={processSteps}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"
       ctaDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />

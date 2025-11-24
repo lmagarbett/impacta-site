@@ -21,7 +21,7 @@ export default function SEO({
 }: SEOProps) {
   const siteName = "Impacta Ltd";
   const url = canonical;
-  const metaImage = image || "/impacta-site/impactawarehouse.JPEG";
+  const metaImage = image || "/impactawarehouse.JPEG";
   const keywordsStr = keywords?.join(", ");
 
   return (
@@ -45,7 +45,7 @@ export default function SEO({
       {metaImage && <meta name="twitter:image" content={metaImage} />}
 
       <meta name="theme-color" content="#044bab" />
-         <link rel="icon" type="image/x-icon" href="/impacta-site/logo.ico" />
+      <link rel="icon" type="image/x-icon" href="/logo.ico" />
       {jsonLd && (
         Array.isArray(jsonLd) ? (
           jsonLd.map((obj, i) => (

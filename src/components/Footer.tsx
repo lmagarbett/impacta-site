@@ -13,14 +13,24 @@ export default function Footer() {
       <p className="text-sm text-gray-300">
         Component handling specialists Fabrication in Textiles, Steel and Plastics
       </p>
-      <a 
-        href="/QMF40-Impacta-Terms-and-Conditions.pdf" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="inline-block mt-3 text-sm text-gray-300 hover:text-bluehover transition"
-      >
-        Terms and Conditions
-      </a>
+      <div className="mt-3 space-y-1">
+        <a 
+          href="/QMF40-Impacta-Terms-and-Conditions.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="block text-sm text-gray-300 hover:text-bluehover transition"
+        >
+          Terms and Conditions
+        </a>
+        <a
+          href="/Impacta%20Privacy%20Policy.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block text-sm text-gray-300 hover:text-bluehover transition"
+        >
+          Privacy Policy
+        </a>
+      </div>
     </div>
 
     <div>

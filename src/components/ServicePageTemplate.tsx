@@ -11,17 +11,15 @@ interface ServicePageTemplateProps {
   heroDescription: string;
   sectorName: string;
   heroImage?: string;
+  heroBackgroundPosition?: string; // CSS background-position (e.g., "center top", "50% 20%")
+  heroRotateDeg?: string; // e.g., "3deg" for slight clockwise rotation
   serviceImage?: string;
+  serviceImageOffset?: string; // CSS length for margin-top on service image
   mainDescription: string;
   keyFeatures: Array<{
     title: string;
     description: string;
     icon?: string;
-  }>;
-  processSteps?: Array<{
-    step: number;
-    title: string;
-    description: string;
   }>;
   ctaTitle: string;
   ctaDescription: string;
@@ -36,10 +34,12 @@ export default function ServicePageTemplate({
   heroDescription,
   sectorName,
   heroImage,
+  heroBackgroundPosition,
+  heroRotateDeg,
   serviceImage,
+  serviceImageOffset,
   mainDescription,
   keyFeatures,
-  processSteps,
   ctaTitle,
   ctaDescription,
   seoTitle,
@@ -73,16 +73,30 @@ export default function ServicePageTemplate({
       <section
         className="relative text-white px-6 text-left overflow-hidden"
         style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
           position: "relative",
           paddingTop: "10rem",
           paddingBottom: "8rem",
         }}
       >
-        <div className="absolute inset-0 bg-black opacity-60"></div>
-        <div className="relative z-10 pl-0 xl:pl-48">
+        {heroImage && (
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div
+              className="absolute inset-[-6%]"
+              style={{
+                backgroundImage: `url(${heroImage})`,
+                backgroundSize: "cover",
+                backgroundPosition: heroBackgroundPosition || "center",
+                transform: heroRotateDeg
+                  ? `rotate(${heroRotateDeg}) scale(1.08)`
+                  : undefined,
+                transformOrigin: "center",
+                willChange: "transform",
+              }}
+            />
+          </div>
+        )}
+        <div className="absolute inset-0 z-10 bg-black opacity-60"></div>
+        <div className="relative z-20 pl-0 xl:pl-48">
           <h1 className="text-4xl font-bold mb-4">{heroTitle}</h1>
           <p className="max-w-2xl text-lg text-gray-200">{heroDescription}</p>
           <h3 className="text-sm font-medium text-gray-300 pt-4">
@@ -123,12 +137,15 @@ export default function ServicePageTemplate({
                 ))}
               </div>
             </div>
-            <div className="flex-1 flex justify-end pl-28">
+            <div
+              className="flex-1 flex justify-center md:justify-end lg:pl-28"
+              style={{ marginTop: serviceImageOffset }}
+            >
               {serviceImage && (
                 <img
                   src={serviceImage}
                   alt={`${serviceName} Solutions`}
-                  className="rounded-lg shadow-lg w-full max-w-xs md:max-w-sm h-96 object-cover filter brightness-40 contrast-125 saturate-80 mix-blend-multiply bg-[#044bab]"
+                  className="rounded-lg shadow-lg w-full max-w-xs md:max-w-sm h-96 object-cover filter brightness-40 contrast-125 saturate-80 mix-blend-multiply bg-[#044bab] mx-auto"
                 />
               )}
             </div>
@@ -182,41 +199,7 @@ export default function ServicePageTemplate({
         </div>
       </section>
 
-      {processSteps && processSteps.length > 0 && (
-        <section className="py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                Our Process
-              </h2>
-              <p className="text-lg text-gray-600">
-                How we deliver exceptional results
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {processSteps.map((step, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-impacta1 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                    {step.step}
-                  </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600">{step.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Process section removed as requested */}
 
       <section className="bg-impacta12 text-white py-12 px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">

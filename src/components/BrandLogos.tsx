@@ -27,7 +27,9 @@ function BrandLogos() {
     if (!marqueeRef.current) return;
     const marquee = new InfiniteMarquee({
       element: ".marquee-container",
-      speed: 250000,
+      // Keep desktop speed aligned with mobile to avoid perceivable slowdown in production
+      // Speed is the animation duration in ms; lower = faster
+      speed: 150000,
       smoothEdges: false,
       direction: "right",
       gap: "15px",
@@ -74,7 +76,7 @@ function BrandLogos() {
               key={index}
               src={imgSrc}
               alt={`Image ${index + 1}`}
-              loading="lazy"
+              loading="eager"
               decoding="async"
               width={120}
               height={50}

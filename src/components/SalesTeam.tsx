@@ -7,14 +7,12 @@ const staff = [
     name: "Georgia Goymer",
     role: "Sales Director",
     image: staff1,
-    phone: "+44(0) 01902 496307",
     email: "Georgia@impacta.co.uk",
   },
   {
     name: "Ryan Skipton",
     role: "Business Development Executive",
     image: staff2,
-    phone: "+44(0) 1902 496307",
     email: "Ryan@impacta.co.uk",
   },
 ];
@@ -62,9 +60,6 @@ export default function SalesTeam() {
               </h3>
               <p className="text-gray-700 text-xs sm:text-sm mb-1 break-words">
                 {staff.email}
-              </p>
-              <p className="text-gray-700 text-xs sm:text-sm mb-1">
-                {staff.phone}
               </p>
             </div>
           </motion.div>

@@ -1,4 +1,6 @@
 import ServicePageTemplate from "../components/ServicePageTemplate";
+import heroImage from "../assets/hero/steelhero.jpg";
+import serviceImage from "../assets/hero/steelabout.jpg";
 
 export default function SteelFabricationPage() {
   const keyFeatures = [
@@ -24,38 +26,19 @@ export default function SteelFabricationPage() {
     },
   ];
 
-  const processSteps = [
-    {
-      step: 1,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 2,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 3,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-    {
-      step: 4,
-      title: "Lorem Ipsum",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-    },
-  ];
+  
 
   return (
     <ServicePageTemplate
       serviceName="Steel Fabrication"
       sectorName="Steel Fabrication"
       heroTitle="Expert Steel Fabrication"
+      heroImage={heroImage}
+      serviceImage={serviceImage}
+      heroBackgroundPosition="center 20%"
       heroDescription="High-quality steel manufacturing manufactured in the UK, with speed and efficiency."
       mainDescription="Our UK welding factory welcomes steel inquiries from all industries, committed to delivering high-quality manufacturing with swift lead times and competitive rates. Our skilled workforce brings extensive experience in the steel sector, ensuring excellence in every project and enabling us to serve diverse industrial needs efficiently and reliably."
       keyFeatures={keyFeatures}
-      processSteps={processSteps}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"
       ctaDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     />

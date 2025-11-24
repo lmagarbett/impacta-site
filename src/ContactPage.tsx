@@ -64,7 +64,6 @@ export default function ContactPage() {
       <SEO
         title="Contact Impacta Ltd — Get in Touch"
         description="Speak to Impacta about bespoke component handling and packaging solutions. Call +44 01902496307 or email sales@impacta.co.uk."
-        canonical="https://lmagarbett.github.io/impacta-site/contact"
       />
       <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
         <Navbar defaultPage="Contact" />
@@ -86,7 +85,7 @@ export default function ContactPage() {
         <img
           src={biglogo}
           alt="Impacta Logo"
-          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[600px] max-w-none opacity-10 pointer-events-none"
+          className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[600px] max-w-none opacity-10 pointer-events-none pr-24"
           style={{ zIndex: 1 }}
         />
       </section>
