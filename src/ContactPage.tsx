@@ -54,9 +54,9 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log("Form submitted:", form);
+  // Netlify will handle the POST; keep state for controlled inputs
+  const handleSubmit = () => {
+    // Allow normal POST submission so Netlify processes the form
   };
 
   return (
@@ -170,9 +170,21 @@ export default function ContactPage() {
       <section className="w-full bg-impacta12 relative py-10 sm:py-14 md:py-16 px-4 sm:px-6 md:min-h-[400px]">
         <div className="max-w-6xl mx-auto flex justify-center md:justify-end items-stretch h-full">
           <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
             onSubmit={handleSubmit}
             className="bg-white p-4 sm:p-6 md:p-8 shadow rounded-xl w-full max-w-full sm:max-w-lg h-full flex flex-col justify-center"
           >
+            {/* Hidden input required for Netlify when using React */}
+            <input type="hidden" name="form-name" value="contact" />
+            {/* Honeypot field */}
+            <p className="hidden">
+              <label>
+                Don’t fill this out: <input name="bot-field" />
+              </label>
+            </p>
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-impacta12">
               Send Us a Message
             </h2>

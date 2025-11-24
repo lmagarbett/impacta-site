@@ -9,6 +9,13 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Hidden Netlify form for build-time detection (React SPA) -->
+    <form name="contact" method="POST" data-netlify="true" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
