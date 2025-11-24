@@ -19,6 +19,9 @@ export default function ContactPage() {
   const [activePage, setActivePage] = useState("Contact");
   const [mapInView, setMapInView] = useState(false);
   const mapRef = useRef<HTMLDivElement | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -54,9 +57,39 @@ export default function ContactPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  // Netlify will handle the POST; keep state for controlled inputs
-  const handleSubmit = () => {
-    // Allow normal POST submission so Netlify processes the form
+  const encode = (data: Record<string, string>) => {
+    return Object.keys(data)
+      .map(
+        (key) =>
+          encodeURIComponent(key) + "=" + encodeURIComponent(data[key] ?? "")
+      )
+      .join("&");
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setErrorMsg(null);
+    setSucceeded(false);
+
+    const body = encode({ "form-name": "contact", ...form });
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body,
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+        setSucceeded(true);
+        setForm({ name: "", email: "", phone: "", message: "" });
+      })
+      .catch((err) => {
+        setErrorMsg(
+          err instanceof Error ? err.message : "Unexpected submission error"
+        );
+      })
+      .finally(() => setSubmitting(false));
   };
 
   return (
@@ -188,6 +221,19 @@ export default function ContactPage() {
             <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-impacta12">
               Send Us a Message
             </h2>
+            {/* Success / Error notifications */}
+            <div aria-live="polite" className="mb-2 min-h-[24px]">
+              {succeeded && (
+                <div className="rounded-md bg-green-50 border border-green-200 text-green-700 text-sm px-3 py-2">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
+              {!succeeded && errorMsg && (
+                <div className="rounded-md bg-red-50 border border-red-200 text-red-700 text-sm px-3 py-2">
+                  Sorry, something went wrong: {errorMsg}
+                </div>
+              )}
+            </div>
             <label
               className="block mb-1 sm:mb-1.5 font-semibold text-sm sm:text-base"
               htmlFor="name"
@@ -258,9 +304,12 @@ export default function ContactPage() {
             />
             <button
               type="submit"
-              className="bg-impacta5 text-white px-6 py-3 rounded-full hover:bg-bluehover transition w-full sm:w-auto"
+              disabled={submitting}
+              className={`bg-impacta5 text-white px-6 py-3 rounded-full transition w-full sm:w-auto ${
+                submitting ? "opacity-70 cursor-not-allowed" : "hover:bg-bluehover"
+              }`}
             >
-              Send Message
+              {submitting ? "Sending…" : succeeded ? "Sent" : "Send Message"}
             </button>
           </form>
         </div>
