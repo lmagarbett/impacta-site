@@ -22,6 +22,7 @@ const RepairMaintenancePage = lazy(() => import("./pages/RepairMaintenancePage.t
 const DesignPrototypingPage = lazy(() => import("./pages/DesignPrototypingPage.tsx"));
 const AboutPage = lazy(() => import("./pages/AboutPage.tsx"));
 const TestimonialsPage = lazy(() => import("./pages/TestimonialsPage.tsx"));
+const GalleryPage = lazy(() => import("./pages/GalleryPage.tsx"));
 import ScrollToTop from "./ScrollToTop.tsx";
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.tsx"));
 import { HelmetProvider } from "react-helmet-async";
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/team" element={<AllTeam />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/about/gallery" element={<GalleryPage />} />
             <Route path="/testimonials" element={<TestimonialsPage />} />
             <Route path="/sectors/automotive" element={<AutomotivePage />} />
             <Route path="/sectors/defense" element={<DefensePage />} />

@@ -21,45 +21,38 @@ import heroImage from "../assets/hero/testimonialhero.jpeg";
 const testimonials = [
   {
     id: 1,
-    quote:
-      "I have been dealing with Impacta for a few years now and I cannot recommend them enough. Any queries or problems and they are always rectified or answered. Special thanks to Georgia Goymer, she is polite and courteous and any problems I do have, she always sorts them out. She is a shining example for Impacta.",
-    author: "Craig Stephens",
-    company: "Stakehill Pallet & Dunnage Ltd",
-  },
-  {
-    id: 2,
     quote: 
     "Very good communication, willingness to make bespoke items, normally a quick turnaround from order to supply. Also Dima is willing to come to site to help discuss and advise on design when needed.",
     company: "BUSE Gas"
   },
   {
-    id: 3,
+    id: 2,
     quote: 
     "Ability to turn orders around quickly with regular communications with the whole team. Great quality and service throughout.",
     company: "Magna Banbury"
   },
   {
-    id: 4,
+    id: 3,
     quote: "Had a vision, contacted IMPACTA and the same day had design team on site to support with a platform. Design sent to my email and order was with me in 2 weeks. Great company.",
     company: "J9 Aggregates"
   },
   {
-    id: 5,
+    id: 4,
     quote: "Amazing customer service, quick turn around on products and always kept updated on our orders.",
     company: "Lowe Riser Pod"
   },
   {
-    id: 6,
+    id: 5,
     quote: "First target of 180 covers by 24/11, brilliant achievement from you and the team, thank you so much!",
     company: "Profile Covers"
   },
   {
-    id: 7,
+    id: 6,
     quote: "Thanks for your great efforts and support on getting our order to us efficiently.",
     company: "HYDRO"
   },
   {
-    id: 8,
+    id: 7,
     quote: "Willingness to come on site and offer support with superb project management.",
     company: "Sanko Gosei"
   }
@@ -133,6 +126,8 @@ export default function TestimonialsSection() {
               Home
             </Link>
             <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-500">About</span>
+            <span className="mx-2 text-gray-400">/</span>
             <span className="text-impacta11 font-medium">Testimonials</span>
           </nav>
         </div>
@@ -165,16 +160,11 @@ export default function TestimonialsSection() {
               </blockquote>
 
               <div className="text-center">
-                {testimonials[currentTestimonial].author ? (
+                {testimonials[currentTestimonial].company ? (
                   <>
                     <h4 className="text-lg font-bold text-impacta11 mb-1">
-                      {testimonials[currentTestimonial].author}
+                      {testimonials[currentTestimonial].company}
                     </h4>
-                    {testimonials[currentTestimonial].company && (
-                      <p className="text-sm text-gray-500">
-                        {testimonials[currentTestimonial].company}
-                      </p>
-                    )}
                   </>
                 ) : (
                   testimonials[currentTestimonial].company && (

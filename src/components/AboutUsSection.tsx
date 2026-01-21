@@ -93,6 +93,8 @@ export default function AboutUsSection() {
               Home
             </Link>
             <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-500">About</span>
+            <span className="mx-2 text-gray-400">/</span>
             <span className="text-impacta11 font-medium">About Us</span>
           </nav>
         </div>

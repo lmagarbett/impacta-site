@@ -36,7 +36,7 @@ export default function SteelFabricationPage() {
       heroImage={heroImage}
       serviceImage={serviceImage}
       heroBackgroundPosition="center 20%"
-      heroDescription="High-quality steel manufacturing manufactured in the UK, with speed and efficiency."
+      heroDescription="High-quality steel manufacturing, produced in the UK with exceptional speed and efficiency."
       mainDescription="Our UK welding factory welcomes steel inquiries from all industries, committed to delivering high-quality manufacturing with swift lead times and competitive rates. Our skilled workforce brings extensive experience in the steel sector, ensuring excellence in every project and enabling us to serve diverse industrial needs efficiently and reliably."
       keyFeatures={keyFeatures}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"

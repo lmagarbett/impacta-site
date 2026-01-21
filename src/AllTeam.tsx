@@ -38,6 +38,9 @@ export default function AllTeam() {
             Meet the people behind Impacta's success. Our team of experts is
             dedicated to delivering the highest quality service and solutions.
           </p>
+          <h3 className="text-sm font-medium text-gray-300 pt-4">
+            British-made, built to last
+          </h3>
         </div>
       </section>
 
@@ -50,6 +53,8 @@ export default function AllTeam() {
             >
               Home
             </Link>
+            <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-500">Contact</span>
             <span className="mx-2 text-gray-400">/</span>
             <span className="text-impacta11 font-medium">Meet the Team</span>
           </nav>

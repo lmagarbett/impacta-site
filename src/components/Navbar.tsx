@@ -24,6 +24,7 @@ export default function Navbar({ defaultPage }: { defaultPage: any }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+
   useEffect(() => {
     const detect = () => {
       const width = window.innerWidth;
@@ -188,19 +189,19 @@ export default function Navbar({ defaultPage }: { defaultPage: any }) {
                 src={biglogo2}
                 alt="Impacta Logo"
                 className={`
-                h-14 w-auto object-contain cursor-pointer
-                transition-all duration-300
-                ${
-                  scrolled || useMobileNav
-                    ? "opacity-100"
-                    : "opacity-90 sm:filter sm:brightness-0 sm:invert"
-                }
-                ${
-                  !scrolled && !useMobileNav
-                    ? "sm:filter sm:brightness-0 sm:invert"
-                    : ""
-                }
-              `}
+                    h-14 w-auto object-contain cursor-pointer
+                    transition-all duration-300
+                    ${
+                      scrolled || useMobileNav
+                        ? "opacity-100"
+                        : "opacity-90 sm:filter sm:brightness-0 sm:invert"
+                    }
+                    ${
+                      !scrolled && !useMobileNav
+                        ? "sm:filter sm:brightness-0 sm:invert"
+                        : ""
+                    }
+                  `}
                 style={{ transition: "filter 0.3s, opacity 0.3s" }}
               />
             </Link>
@@ -301,7 +302,8 @@ export default function Navbar({ defaultPage }: { defaultPage: any }) {
                   ${
                     activePage === "About" ||
                     activePage === "About Us" ||
-                    activePage === "Testimonials"
+                    activePage === "Testimonials" ||
+                    activePage === "Gallery"
                       ? `after:absolute after:left-0 after:right-0 after:-bottom-3 after:h-0.5 after:rounded-full after:content-[""] ${
                           scrolled || useMobileNav
                             ? "after:bg-bluehover"
@@ -376,6 +378,37 @@ export default function Navbar({ defaultPage }: { defaultPage: any }) {
                         </div>
                         <p className="text-gray-400 text-xs sm:text-sm ml-6">
                           Learn about our story, values, and commitment
+                        </p>
+                      </Link>
+                      <Link
+                        to="/about/gallery"
+                        className={`
+                        block px-3 sm:px-4 py-2 hover:bg-gray-100 transition-colors duration-300
+                        ${
+                          activePage === "Gallery"
+                            ? "text-impacta1 font-medium"
+                            : "text-gray-600"
+                        }
+                      `}
+                        onClick={() => {
+                          setActivePage("Gallery");
+                          setAboutDropdownOpen(false);
+                          setMenuOpen(false);
+                        }}
+                      >
+                        <div className="flex items-center">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            className="size-4 mr-2 text-impacta1"
+                          >
+                            <path d="M4 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H4Zm1.5 3.5A1.5 1.5 0 1 1 4 8.5 1.5 1.5 0 0 1 5.5 6.5Zm10 8.5H4.5a.5.5 0 0 1-.4-.8l3.2-4a.5.5 0 0 1 .8 0l1.8 2.25 2.8-3.5a.5.5 0 0 1 .8 0l2.8 3.5a.5.5 0 0 1-.4.8Z" />
+                          </svg>
+                          <p className="font-bold">Gallery</p>
+                        </div>
+                        <p className="text-gray-400 text-xs sm:text-sm ml-6">
+                          Photos of our facilities and projects
                         </p>
                       </Link>
                       <Link

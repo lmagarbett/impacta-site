@@ -114,6 +114,9 @@ export default function ContactPage() {
             requests? We’d love to hear from you, so don’t hesitate to reach out
             today.
           </p>
+          <h3 className="text-sm font-medium text-gray-300 pt-4">
+            British-made, built to last
+          </h3>
         </div>
         <img
           src={biglogo}
@@ -132,6 +135,8 @@ export default function ContactPage() {
             >
               Home
             </Link>
+            <span className="mx-2 text-gray-400">/</span>
+            <span className="text-gray-500">Contact</span>
             <span className="mx-2 text-gray-400">/</span>
             <span className="text-impacta11 font-medium">Contact Us</span>
           </nav>
