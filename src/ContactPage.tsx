@@ -72,11 +72,14 @@ export default function ContactPage() {
     setErrorMsg(null);
     setSucceeded(false);
 
-    const body = encode({ "form-name": "contact", ...form });
+    const body = encode({ "form-name": "contact", "bot-field": "", ...form });
 
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/x-www-form-urlencoded",
+      },
       body,
     })
       .then((res) => {
