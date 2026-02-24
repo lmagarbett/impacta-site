@@ -13,6 +13,7 @@ const Navbar = lazy(() => import("./components/Navbar"));
 const Footer = lazy(() => import("./components/Footer"));
 const BigClickableImagesSection = lazy(() => import("./components/BigClickableImagesSection"));
 import SEO from "./components/SEO";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   const [heroVisible, setHeroVisible] = useState(false);
@@ -103,9 +104,11 @@ function App() {
         }}
       />
 
-      <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
-        <Navbar defaultPage="Home" />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
+          <Navbar defaultPage="Home" />
+        </Suspense>
+      </ErrorBoundary>
 
       <section
         className={`
@@ -224,13 +227,17 @@ function App() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading brands…</div>}>
-        <BrandLogos />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading brands…</div>}>
+          <BrandLogos />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sections…</div>}>
-        <BigClickableImagesSection />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sections…</div>}>
+          <BigClickableImagesSection />
+        </Suspense>
+      </ErrorBoundary>
 
       <section className="py-20 bg-white px-6">
         <div className="max-w-4xl mx-auto text-center md:text-left">
@@ -282,9 +289,11 @@ function App() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sectors…</div>}>
-        <Sectors />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading sectors…</div>}>
+          <Sectors />
+        </Suspense>
+      </ErrorBoundary>
 
       <section className="bg-impacta12 text-white py-12 px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">
@@ -302,9 +311,11 @@ function App() {
         </Link>
       </section>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
-        <Footer />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }

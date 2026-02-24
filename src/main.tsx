@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from "react";
+import ErrorBoundary from "./components/ErrorBoundary";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import {
@@ -32,9 +33,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading…</div>}>
-          <Routes>
-            <Route path="/" element={<App />} />
+        <ErrorBoundary>
+          <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading…</div>}>
+            <Routes>
+              <Route path="/" element={<App />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/team" element={<AllTeam />} />
             <Route path="/about" element={<AboutPage />} />
@@ -74,7 +76,8 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </Suspense>
+          </Suspense>
+        </ErrorBoundary>
       </BrowserRouter>
     </HelmetProvider>
   </React.StrictMode>

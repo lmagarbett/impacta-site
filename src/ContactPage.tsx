@@ -6,6 +6,7 @@ const Footer = lazy(() => import("./components/Footer"));
 const SalesTeam = lazy(() => import("./components/SalesTeam"));
 const GoogleMapLazy = lazy(() => import("./components/GoogleMap"));
 import SEO from "./components/SEO";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -101,9 +102,11 @@ export default function ContactPage() {
         title="Contact Impacta Ltd — Get in Touch"
         description="Speak to Impacta about bespoke component handling and packaging solutions. Call +44 01902496307 or email sales@impacta.co.uk."
       />
-      <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
-        <Navbar defaultPage="Contact" />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-4 text-center text-gray-600">Loading navigation…</div>}>
+          <Navbar defaultPage="Contact" />
+        </Suspense>
+      </ErrorBoundary>
 
       <section
         className="relative bg-impacta12 text-white px-6 text-left overflow-hidden"
@@ -146,9 +149,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading team…</div>}>
-        <SalesTeam />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading team…</div>}>
+          <SalesTeam />
+        </Suspense>
+      </ErrorBoundary>
 
       <section className="w-full bg-white">
         <div className="max-w-7xl mx-auto mt-4 px-4 sm:px-6 text-left text-sm">
@@ -167,10 +172,12 @@ export default function ContactPage() {
       <section className="w-full bg-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div ref={mapRef} className="min-h-[360px]">
-            {mapInView ? (
-              <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading map…</div>}>
-                <GoogleMapLazy />
-              </Suspense>
+              {mapInView ? (
+              <ErrorBoundary>
+                <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading map…</div>}>
+                  <GoogleMapLazy />
+                </Suspense>
+              </ErrorBoundary>
             ) : (
               <div className="w-full h-[360px] bg-gray-100 animate-pulse rounded-lg flex items-center justify-center text-gray-500">
                 Map will load when visible…
@@ -323,9 +330,11 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
-        <Footer />
-      </Suspense>
+      <ErrorBoundary>
+        <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading footer…</div>}>
+          <Footer />
+        </Suspense>
+      </ErrorBoundary>
     </div>
   );
 }
