@@ -15,6 +15,9 @@ import g9 from "../assets/gallery/gallery9.jpg";
 import g10 from "../assets/gallery/gallery10.jpg";
 import g11 from "../assets/gallery/gallery11.jpg";
 import g12 from "../assets/gallery/gallery12.jpg";
+import g13 from "../assets/gallery/gallery13.jpg";
+import g14 from "../assets/gallery/gallery14.jpg";
+import g15 from "../assets/gallery/gallery15.jpg";
 
 export default function GalleryPage() {
   const images: { src: string; alt: string }[] = [
@@ -30,6 +33,9 @@ export default function GalleryPage() {
     { src: g10, alt: "Bespoke Textile Bag System" },
     { src: g11, alt: "Bespoke Steel Mesh Enclosure" },
     { src: g12, alt: "Large Bespoke Stillage" },
+    { src: g13, alt: "Durable Chute Sock" },
+    { src: g14, alt: "Bespoke Textile Dunnage" },
+    { src: g15, alt: "Returnable Plastic Containers"},
   ];
 
   return (
