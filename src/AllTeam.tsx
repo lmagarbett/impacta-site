@@ -5,11 +5,11 @@ import Navbar from "./components/Navbar";
 import TeamMembers from "./components/TeamMembers";
 import warehouseBgImg from "./assets/warehouse-bg.jpeg";
 export default function AllTeam() {
-  const [scrolled, setScrolled] = useState(false);
+  const [_scrolled, _setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 100);
+      _setScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

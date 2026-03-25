@@ -1,5 +1,5 @@
 declare module "*?imagetools" {
-  const result: any;
+  const result: unknown;
   export default result;
 }
 

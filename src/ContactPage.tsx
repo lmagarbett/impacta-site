@@ -15,9 +15,9 @@ export default function ContactPage() {
     phone: "",
     message: "",
   });
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [activePage, setActivePage] = useState("Contact");
+  const [_scrolled, _setScrolled] = useState(false);
+  const [_menuOpen, _setMenuOpen] = useState(false);
+  const [_activePage, _setActivePage] = useState("Contact");
   const [mapInView, setMapInView] = useState(false);
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -26,7 +26,7 @@ export default function ContactPage() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 100);
+      _setScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

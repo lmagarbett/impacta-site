@@ -1,7 +1,13 @@
 import React from "react";
 
-type Props = { children: React.ReactNode };
-type State = { hasError: boolean; error?: Error };
+interface Props {
+  children: React.ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+  error?: Error;
+}
 
 export default class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -15,7 +21,6 @@ export default class ErrorBoundary extends React.Component<Props, State> {
 
   componentDidCatch(error: Error, info: React.ErrorInfo) {
     // Log errors to console — replace with external logging if available
-    // eslint-disable-next-line no-console
     console.error("ErrorBoundary caught:", error, info);
   }
 

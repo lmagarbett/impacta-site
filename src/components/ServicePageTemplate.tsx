@@ -16,11 +16,11 @@ interface ServicePageTemplateProps {
   serviceImage?: string;
   serviceImageOffset?: string; // CSS length for margin-top on service image
   mainDescription: string;
-  keyFeatures: Array<{
+  keyFeatures: {
     title: string;
     description: string;
     icon?: string;
-  }>;
+  }[];
   ctaTitle: string;
   ctaDescription: string;
   seoTitle?: string;
@@ -40,17 +40,17 @@ export default function ServicePageTemplate({
   serviceImageOffset,
   mainDescription,
   keyFeatures,
-  ctaTitle,
-  ctaDescription,
+  _ctaTitle,
+  _ctaDescription,
   seoTitle,
   seoDescription,
   canonical,
 }: ServicePageTemplateProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [_scrolled, _setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 100);
+      _setScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

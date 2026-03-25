@@ -27,12 +27,17 @@ const GalleryPage = lazy(() => import("./pages/GalleryPage.tsx"));
 import ScrollToTop from "./ScrollToTop.tsx";
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.tsx"));
 import { HelmetProvider } from "react-helmet-async";
+import ScrollToTopButton from "./components/ScrollToTopButton.tsx";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+const rootElement = document.getElementById("root");
+if (!rootElement) throw new Error("Root element not found");
+
+ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
     <HelmetProvider>
       <BrowserRouter>
         <ScrollToTop />
+        <ScrollToTopButton />
         <ErrorBoundary>
           <Suspense fallback={<div className="p-6 text-center text-gray-600">Loading…</div>}>
             <Routes>

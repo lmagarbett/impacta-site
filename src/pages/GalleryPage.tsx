@@ -18,6 +18,12 @@ import g12 from "../assets/gallery/gallery12.jpg";
 import g13 from "../assets/gallery/gallery13.jpg";
 import g14 from "../assets/gallery/gallery14.jpg";
 import g15 from "../assets/gallery/gallery15.jpg";
+import g16 from "../assets/gallery/1773659024013.jpg";
+import g17 from "../assets/gallery/1773659024376.jpg";
+import g18 from "../assets/gallery/1773659024543.jpg";
+import g19 from "../assets/gallery/1773659025683.jpg";
+import g20 from "../assets/gallery/1773659025748.jpg";
+import g21 from "../assets/gallery/1773659025835.jpg";
 
 export default function GalleryPage() {
   const images: { src: string; alt: string }[] = [
@@ -36,6 +42,12 @@ export default function GalleryPage() {
     { src: g13, alt: "Durable Chute Sock" },
     { src: g14, alt: "Bespoke Textile Dunnage" },
     { src: g15, alt: "Returnable Plastic Containers"},
+    { src: g16, alt: "Pigeon Hole Stillage" },
+    { src: g17, alt: "Small Pigeon Hole Stillage" },
+    { src: g18, alt: "Enclosed Protective Stillage" },
+    { src: g19, alt: "Mobile Compartment Stillage" },
+    { src: g20, alt: "Stackable Transport Stillage" },
+    { src: g21, alt: "Mesh-Sided Protective Stillage" },
   ];
 
   return (

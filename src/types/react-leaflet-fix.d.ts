@@ -1,3 +1,3 @@
 declare module "@react-leaflet/core/lib/context" {
-  export interface ControlledLayer {}
+  export type ControlledLayer = Record<string, unknown>;
 }

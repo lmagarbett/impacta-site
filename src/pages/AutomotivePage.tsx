@@ -1,7 +1,6 @@
 import SectorPageTemplateSimple from "../components/SectorPageTemplateSimple";
 import heroImage from "../assets/hero/automotivehero.jpeg";
 import aboutImage from "../assets/hero/automotiveabout.jpeg";
-import automotiveCaseImage from "../assets/hero/automotivecase.jpeg";
 
 function AutomotivePage() {
   const description = [

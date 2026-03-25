@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import biglogo from "../assets/biglogo.png";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -13,22 +12,22 @@ interface SectorPageTemplateProps {
   heroImage?: string;
   aboutImage?: string;
   description?: string[];
-  keyOfferings?: Array<{
+  keyOfferings?: {
     title: string;
     description?: string;
     icon: string;
-  }>;
-  caseStudies?: Array<{
+  }[];
+  caseStudies?: {
     title: string;
     description: string;
     image?: string;
     testimonialTitle?: string;
     testimonialDescription?: string;
-  }>;
-  benefits: Array<{
+  }[];
+  benefits: {
     title: string;
     description: string;
-  }>;
+  }[];
   ctaTitle?: string;
   ctaDescription?: string;
   seoTitle?: string;
@@ -50,11 +49,11 @@ export default function SectorPageTemplate({
   seoDescription,
   canonical,
 }: SectorPageTemplateProps) {
-  const [scrolled, setScrolled] = useState(false);
+  const [_scrolled, _setScrolled] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 100);
+      _setScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);

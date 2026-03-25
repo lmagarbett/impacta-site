@@ -1,14 +1,14 @@
 import { Helmet } from "react-helmet-async";
 
-export type SEOProps = {
+export interface SEOProps {
   title?: string;
   description?: string;
   canonical?: string;
   image?: string;
   noindex?: boolean;
   keywords?: string[];
-  jsonLd?: Record<string, any> | Record<string, any>[];
-};
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
 
 export default function SEO({
   title = "Impacta Ltd — Component Handling & Packaging Solutions",

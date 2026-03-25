@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     setHeroVisible(true);
-    const idle = (cb: () => void) => ("requestIdleCallback" in window ? (window as any).requestIdleCallback(cb) : setTimeout(cb, 1500));
+    const idle = (cb: () => void) => ("requestIdleCallback" in window ? (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(cb) : setTimeout(cb, 1500));
     idle(() => {
       import("./components/Navbar");
       import("./components/Footer");
@@ -39,8 +39,8 @@ function App() {
       if (!v) return;
       const isFullscreen = !!(
         document.fullscreenElement ||
-        (document as any).webkitFullscreenElement ||
-        (document as any).msFullscreenElement
+        (document as unknown as { webkitFullscreenElement?: Element }).webkitFullscreenElement ||
+        (document as unknown as { msFullscreenElement?: Element }).msFullscreenElement
       );
       setIsWatching(!!isFullscreen);
       if (!isFullscreen) {
@@ -49,12 +49,12 @@ function App() {
       }
     };
     document.addEventListener("fullscreenchange", onFsChange);
-    document.addEventListener("webkitfullscreenchange", onFsChange as any);
-    document.addEventListener("MSFullscreenChange", onFsChange as any);
+    document.addEventListener("webkitfullscreenchange", onFsChange as unknown as EventListener);
+    document.addEventListener("MSFullscreenChange", onFsChange as unknown as EventListener);
     return () => {
       document.removeEventListener("fullscreenchange", onFsChange);
-      document.removeEventListener("webkitfullscreenchange", onFsChange as any);
-      document.removeEventListener("MSFullscreenChange", onFsChange as any);
+      document.removeEventListener("webkitfullscreenchange", onFsChange as unknown as EventListener);
+      document.removeEventListener("MSFullscreenChange", onFsChange as unknown as EventListener);
     };
   }, []);
 
@@ -68,10 +68,10 @@ function App() {
       await v.play();
       if (v.requestFullscreen) {
         await v.requestFullscreen();
-      } else if ((v as any).webkitEnterFullscreen) {
-        (v as any).webkitEnterFullscreen();
+      } else if ((v as unknown as { webkitEnterFullscreen?: () => void }).webkitEnterFullscreen) {
+        (v as unknown as { webkitEnterFullscreen: () => void }).webkitEnterFullscreen();
       }
-    } catch (_) {
+    } catch {
       // Ignore playback errors (e.g., user gesture policies)
     }
   };

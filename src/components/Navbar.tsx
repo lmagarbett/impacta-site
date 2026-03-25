@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import biglogo2 from "../assets/biglogo2.png";
 import { Link } from "react-router-dom";
 
-export default function Navbar({ defaultPage }: { defaultPage: any }) {
+export default function Navbar({ defaultPage }: { defaultPage: string }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePage, setActivePage] = useState(defaultPage);
@@ -28,13 +28,13 @@ export default function Navbar({ defaultPage }: { defaultPage: any }) {
   useEffect(() => {
     const detect = () => {
       const width = window.innerWidth;
-      const ua = navigator.userAgent || (navigator as any).vendor || "";
+      const ua = navigator.userAgent || (navigator as unknown as { vendor?: string }).vendor || "";
       const isIOSDevice = /iPad|iPhone|iPod/.test(ua);
       const isIpadOS13Plus =
         navigator.platform === "MacIntel" &&
-        (navigator as any).maxTouchPoints > 1;
+        ((navigator as unknown as { maxTouchPoints?: number }).maxTouchPoints ?? 0) > 1;
       const isTouch =
-        "ontouchstart" in window || (navigator as any).maxTouchPoints > 0;
+        "ontouchstart" in window || ((navigator as unknown as { maxTouchPoints?: number }).maxTouchPoints ?? 0) > 0;
       const isTabletWidth = width >= 768 && width <= 1366;
       const forceMobile =
         (isIOSDevice || isIpadOS13Plus || isTouch) && isTabletWidth;

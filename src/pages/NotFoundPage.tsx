@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-impacta12 text-white flex flex-col">
-      <Navbar defaultPage={null} />
+      <Navbar defaultPage="" />
 
       <section
         className="px-6 text-center flex-1 flex items-center"
