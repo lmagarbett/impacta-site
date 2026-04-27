@@ -19,7 +19,7 @@ const staff = [
 
 export default function SalesTeam() {
   return (
-    <section className="bg-gray-100 py-16 px-4 sm:px-6">
+    <section className="bg-slate-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] py-20 px-6">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ export default function SalesTeam() {
         {staff.map((staff, i) => (
           <motion.div
             key={staff.name}
-            className="w-full flex flex-col sm:flex-row items-center p-4 sm:p-6 md:p-8 rounded-xl shadow bg-gray-50"
+            className="relative flex flex-col sm:flex-row items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{

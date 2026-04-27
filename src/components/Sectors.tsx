@@ -99,7 +99,7 @@ const sectors = [
 
 export default function Sectors() {
   return (
-    <section className="bg-gray-100 py-20 px-6">
+    <section className="bg-slate-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] py-20 px-6">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -114,7 +114,7 @@ export default function Sectors() {
         {sectors.map((sector, i) => (
           <motion.div
             key={sector.title}
-            className="p-6 border rounded-lg shadow bg-gray-50 hover:shadow-lg hover:bg-gray-100 transition-all duration-300 block relative overflow-hidden"
+            className="relative flex flex-col p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl hover:shadow-xl transition-all duration-300 overflow-hidden"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{

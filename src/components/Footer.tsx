@@ -54,8 +54,8 @@ export default function Footer() {
     <div>
       <h3 className="text-lg font-semibold mb-4">Social</h3>
       <div className="flex gap-3">
-        <a href="https://www.linkedin.com/company/impactaltd/posts/?feedView=all" aria-label="LinkedIn" className="hover:text-bluehover transition"><img src={linkedin} alt="Linked In" className="h-4 mb-3" /></a>
-        <a href="https://x.com/Impacta_ltd" aria-label="X" className="hover:text-bluehover transition"><img src={x} alt="X" className="h-4 mb-3 filter brightness-0 invert" /></a>
+        <a href="https://www.linkedin.com/company/impactaltd/posts/?feedView=all" aria-label="LinkedIn" rel="noopener noreferrer" className="hover:text-bluehover transition"><img src={linkedin} alt="Linked In" className="h-4 mb-3" /></a>
+        <a href="https://x.com/Impacta_ltd" aria-label="X" rel="noopener noreferrer" className="hover:text-bluehover transition"><img src={x} alt="X" className="h-4 mb-3 filter brightness-0 invert" /></a>
       </div>
     </div>
   </div>

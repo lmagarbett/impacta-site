@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 
+import impactaOG from "./assets/impactaOG.png";
 import impactaentranceAvif from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=avif&as=srcset";
 import impactaentranceWebp from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=webp&as=srcset";
 import impactaentranceJpg from "./assets/impactaentrance.jpeg?imagetools&w=480;768;1200&format=jpeg&as=srcset";
@@ -81,7 +82,7 @@ function App() {
       <SEO
         title="Impacta Ltd — Component Handling & Packaging Solutions"
         description="British-made, built to last. Impacta designs, manufactures and repairs high-quality packaging and handling solutions from one UK facility."
-        image="/impactawarehouse.JPEG"
+        image={impactaOG}
         keywords={["Impacta", "packaging", "component handling", "UK manufacturing", "returnable packaging"]}
         jsonLd={{
           "@context": "https://schema.org",

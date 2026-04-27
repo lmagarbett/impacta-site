@@ -53,7 +53,7 @@ const teamMembers = [
 
 export default function TeamMembers() {
   return (
-    <section className="bg-gray-100 py-20 px-6">
+    <section className="bg-slate-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] py-20 px-6">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export default function TeamMembers() {
         {teamMembers.map((member, i) => (
           <motion.div
             key={member.name}
-            className="flex flex-col items-center p-6 rounded-xl bg-gray-50 shadow"
+            className="relative flex flex-col items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{

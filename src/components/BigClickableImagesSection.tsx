@@ -8,11 +8,11 @@ import herobg3Jpg from "../assets/herobg3.jpeg?imagetools&w=640;1024;1440&format
 
 const BigClickableImagesSection = () => {
   return (
-    <section className="py-20 px-6">
+    <section className="bg-slate-50 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] py-20 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
         <Link
           to="/services/repairs-maintenance"
-          className="relative group overflow-hidden h-80 md:h-96 rounded-lg shadow-lg"
+          className="relative group flex flex-col overflow-hidden h-80 md:h-96 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
         >
           <picture>
             <source type="image/avif" srcSet={herobg2Avif} sizes="(max-width: 768px) 100vw, 50vw" />
@@ -48,7 +48,7 @@ const BigClickableImagesSection = () => {
 
         <Link
           to="/services/industrial-textile-sewing"
-          className="relative group overflow-hidden h-80 md:h-96 rounded-lg shadow-lg"
+          className="relative group flex flex-col overflow-hidden h-80 md:h-96 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
         >
           <picture>
             <source type="image/avif" srcSet={herobg3Avif} sizes="(max-width: 768px) 100vw, 50vw" />

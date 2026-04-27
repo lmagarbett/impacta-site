@@ -101,6 +101,7 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
             <div className="flex space-x-2">
               <a
                 href="https://www.linkedin.com/company/impactaltd/posts/?feedView=all"
+                rel="noopener noreferrer"
                 className="text-impacta11 hover:text-impacta9 hover:scale-110 transition-all duration-300 ease-in-out transform"
               >
                 <svg
@@ -156,11 +157,13 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
 
       <header
         className={`
-          fixed w-full left-0 z-40 transition-colors duration-300
+          fixed w-full left-0 z-40 transition-all duration-300
           ${
-            scrolled || useMobileNav
-              ? "bg-white shadow-md"
-              : "bg-white sm:bg-transparent"
+            useMobileNav
+              ? "bg-white border-b border-gray-200 shadow"
+              : scrolled
+              ? "bg-white/80 border border-white/20 backdrop-blur-sm shadow"
+              : "bg-white/10 border border-white/10 backdrop-blur-sm shadow-none"
           }
           py-3 px-6
         `}
@@ -232,9 +235,9 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
           <ul
             className={
               useMobileNav
-                ? `fixed top-0 right-0 h-full w-4/5 max-w-[260px] bg-white shadow-lg z-50 flex flex-col gap-4 text-base font-medium items-start p-4 transition-transform duration-300 ${
+                ? `fixed top-[88px] right-0 bottom-0 w-4/5 max-w-[260px] bg-white shadow-lg z-50 flex flex-col gap-4 text-base font-medium items-start p-4 transition-transform duration-300 ${
                     menuOpen ? "translate-x-0" : "translate-x-full"
-                  } mt-[56px]`
+                  }`
                 : `static flex flex-row gap-6 shadow-none bg-transparent p-0 translate-x-0 h-auto w-auto items-center text-sm`
             }
           >

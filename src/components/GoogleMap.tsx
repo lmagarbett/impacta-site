@@ -37,7 +37,7 @@ export default function GoogleMap() {
         scrollWheelZoom={false}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright" rel="noopener noreferrer">OSM</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {offices.map((o, i) => (

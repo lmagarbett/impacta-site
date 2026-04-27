@@ -24,6 +24,20 @@ import g18 from "../assets/gallery/1773659024543.jpg";
 import g19 from "../assets/gallery/1773659025683.jpg";
 import g20 from "../assets/gallery/1773659025748.jpg";
 import g21 from "../assets/gallery/1773659025835.jpg";
+import g22 from "../assets/gallery/image00001.jpeg";
+import g23 from "../assets/gallery/image00002.jpeg";
+import g24 from "../assets/gallery/image00003.jpeg";
+import g25 from "../assets/gallery/image00004.jpeg";
+import g26 from "../assets/gallery/image00005.jpeg";
+import g27 from "../assets/gallery/image00006.jpeg";
+import g28 from "../assets/gallery/image00007.jpeg";
+import g29 from "../assets/gallery/image00008.jpeg";
+import g30 from "../assets/gallery/image00009.jpeg";
+import g31 from "../assets/gallery/image00010.jpeg";
+import g32 from "../assets/gallery/image00011.jpeg";
+import g33 from "../assets/gallery/image00012.jpeg";
+import g34 from "../assets/gallery/image00013.jpeg";
+import g35 from "../assets/gallery/image00014.jpeg";
 
 export default function GalleryPage() {
   const images: { src: string; alt: string }[] = [
@@ -48,6 +62,20 @@ export default function GalleryPage() {
     { src: g19, alt: "Mobile Compartment Stillage" },
     { src: g20, alt: "Stackable Transport Stillage" },
     { src: g21, alt: "Mesh-Sided Protective Stillage" },
+    { src: g22, alt: "Stillage Assembly" },
+    { src: g23, alt: "Pallet Pack System" },
+    { src: g24, alt: "Bespoke Divider Sets" },
+    { src: g25, alt: "Branded Quality Seal" },
+    { src: g26, alt: "Heavy Duty Kitting Sleeve" },
+    { src: g27, alt: "Heavy Duty Kitting Sleeve" },
+    { src: g28, alt: "Textile Dunnage Detail" },
+    { src: g29, alt: "Automotive Component Cells" },
+    { src: g30, alt: "Secure Transit Unit" },
+    { src: g31, alt: "Vertical Tray Stack" },
+    { src: g32, alt: "Tiered Component Trays" },
+    { src: g33, alt: "Nestable Logistics Trays" },
+    { src: g34, alt: "Custom Foam Inserts" },
+    { src: g35, alt: "High-Impact Polypropylene Tray" },
   ];
 
   return (
