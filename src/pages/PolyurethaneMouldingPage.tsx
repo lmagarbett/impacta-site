@@ -40,6 +40,10 @@ export default function PolyurethaneMouldingPage() {
       keyFeatures={keyFeatures}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"
       ctaDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      relatedServices={[
+        { name: "Plastic Solutions", path: "/services/plastic-solutions" },
+        { name: "Design & Prototyping", path: "/services/design-prototyping" },
+      ]}
     />
   );
 }

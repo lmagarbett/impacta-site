@@ -42,6 +42,12 @@ export default function DesignPrototypingPage() {
       keyFeatures={keyFeatures}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"
       ctaDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      relatedServices={[
+        { name: "Plastic Solutions", path: "/services/plastic-solutions" },
+        { name: "Polyurethane Moulding", path: "/services/polyurethane-moulding" },
+        { name: "Steel Fabrication", path: "/services/steel-fabrication" },
+        { name: "Industrial Textile Sewing", path: "/services/industrial-textile-sewing" },
+      ]}
     />
   );
 }

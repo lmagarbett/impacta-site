@@ -26,6 +26,10 @@ interface ServicePageTemplateProps {
   seoTitle?: string;
   seoDescription?: string;
   canonical?: string;
+  relatedServices?: {
+    name: string;
+    path: string;
+  }[];
 }
 
 export default function ServicePageTemplate({
@@ -45,6 +49,7 @@ export default function ServicePageTemplate({
   seoTitle,
   seoDescription,
   canonical,
+  relatedServices,
 }: ServicePageTemplateProps) {
   const [_scrolled, _setScrolled] = useState(false);
 
@@ -200,6 +205,26 @@ export default function ServicePageTemplate({
       </section>
 
       {/* Process section removed as requested */}
+
+      {relatedServices && relatedServices.length > 0 && (
+        <section className="py-12 px-6 bg-white">
+          <div className="max-w-5xl mx-auto">
+            <h3 className="text-lg md:text-xl font-semibold text-impacta11 mb-4">
+              Related Services
+            </h3>
+            <p className="text-gray-700 mb-4">
+              Explore our complementary offerings: {relatedServices.map((service, index) => (
+                <span key={service.path}>
+                  <Link to={service.path} className="text-impacta7 font-semibold hover:underline">
+                    {service.name}
+                  </Link>
+                  {index < relatedServices.length - 1 ? ", " : "."}
+                </span>
+              ))}
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="bg-impacta12 text-white py-12 px-6 text-center">
         <h2 className="text-2xl md:text-3xl font-bold mb-4">

@@ -12,43 +12,46 @@ const teamMembers = [
   {
     name: "Warren Morgan",
     role: "Managing Director",
+    description:
+      "Provides strategic leadership for the business, overseeing operations, customer relationships and long-term growth initiatives.",
     image: staff8,
   },
   {
     name: "Georgia Goymer",
     role: "Sales Director",
+    description:
+      "Leads business development activities, managing customer accounts and identifying new opportunities across key industries.",
     image: staff1,
-  },
-  {
-    name: "Ryan Skipton",
-    role: "Business Development Executive",
-    image: staff2,
   },
   {
     name: "Karen Hartlebury",
     role: "Financial Controller",
+    description:
+      "Oversees the company's financial management, including budgeting, reporting, cash flow and regulatory compliance.",
     image: staff7,
   },
   {
     name: "Dimitrijus Seliuginas",
     role: "CAD/Engineering",
+    description:
+      "Develops technical designs and engineering solutions, producing detailed CAD models and manufacturing drawings for bespoke projects.",
     image: staff6,
   },
   {
     name: "Jonathan Churms",
     role: "CAD Engineer Manager",
+    description:
+      "Manages the engineering team and design processes, ensuring projects are delivered efficiently and meet customer specifications.",
     image: staff3,
   },
   {
     name: "Jack Titley",
     role: "Textile Supervisor",
+    description:
+      "Supervises textile production activities, coordinating workflow, quality standards and on-time delivery of customer orders.",
     image: staff5,
   },
-  {
-    name: "Neill Urba",
-    role: "Metal Work Supervisor",
-    image: staff4,
-  },
+ 
 ];
 
 export default function TeamMembers() {
@@ -68,7 +71,9 @@ export default function TeamMembers() {
         {teamMembers.map((member, i) => (
           <motion.div
             key={member.name}
-            className="relative flex flex-col items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
+            className={`relative flex flex-col items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl ${
+              i === 4 ? "lg:col-start-2" : ""
+            }`}
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
@@ -88,6 +93,11 @@ export default function TeamMembers() {
                 {member.name}
               </h3>
               <p className="text-sm font-medium text-gray-500">{member.role}</p>
+              <div className="mt-4 rounded-3xl bg-slate-100 p-4 text-left">
+                <p className="text-sm leading-6 text-gray-700">
+                  {member.description}
+                </p>
+              </div>
             </div>
           </motion.div>
         ))}

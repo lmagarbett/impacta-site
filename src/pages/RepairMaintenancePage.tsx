@@ -39,6 +39,9 @@ export default function RepairMaintenancePage() {
       keyFeatures={keyFeatures}
       ctaTitle="Lorem Ipsum Dolor Sit Amet"
       ctaDescription="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      relatedServices={[
+        { name: "Steel Fabrication", path: "/services/steel-fabrication" },
+      ]}
     />
   );
 }

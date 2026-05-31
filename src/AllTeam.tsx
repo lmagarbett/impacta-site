@@ -70,7 +70,7 @@ export default function AllTeam() {
             At Impacta, our team brings together decades of combined experience
             in the automotive industry. We are passionate about delivering
             exceptional service and building lasting relationships with our
-            clients.
+            clients. Our team works closely with customers throughout the <Link to="/services/design-prototyping" className="text-impacta7 font-semibold hover:underline">design and prototyping process</Link> to develop effective bespoke solutions.
           </p>
         </div>
       </section>

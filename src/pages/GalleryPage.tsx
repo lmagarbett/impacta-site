@@ -38,6 +38,7 @@ import g32 from "../assets/gallery/image00011.jpeg";
 import g33 from "../assets/gallery/image00012.jpeg";
 import g34 from "../assets/gallery/image00013.jpeg";
 import g35 from "../assets/gallery/image00014.jpeg";
+import g36 from "../assets/gallery/1775895646928.jpg";
 
 export default function GalleryPage() {
   const images: { src: string; alt: string }[] = [
@@ -76,6 +77,7 @@ export default function GalleryPage() {
     { src: g33, alt: "Nestable Logistics Trays" },
     { src: g34, alt: "Custom Foam Inserts" },
     { src: g35, alt: "High-Impact Polypropylene Tray" },
+    { src: g36, alt: "Yellow fabricated stillage" },
   ];
 
   return (
@@ -139,6 +141,9 @@ export default function GalleryPage() {
                 </h2>
                 <p className="text-base leading-relaxed text-center">
                   From design and fabrication to delivery and support, Impacta is your 'one-stop shop' for high-quality, bespoke packaging and handling solutions - all manufactured under one roof in the UK.
+                </p>
+                <p className="text-base leading-relaxed text-center">
+                  Explore examples of our projects across <Link to="/services/steel-fabrication" className="text-impacta7 font-semibold hover:underline">steel fabrication</Link>, <Link to="/services/industrial-textile-sewing" className="text-impacta7 font-semibold hover:underline">industrial textile sewing</Link>, and <Link to="/services/plastic-solutions" className="text-impacta7 font-semibold hover:underline">plastic solutions</Link>.
                 </p>
               </div>
             </div>

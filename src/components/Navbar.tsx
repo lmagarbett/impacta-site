@@ -97,7 +97,15 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
     <>
       <div className="bg-gray-100 text-gray-600 text-xs py-2 px-6 fixed w-full top-0 left-0 z-50 border-b border-gray-300">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <div className="hidden sm:flex items-center space-x-2">
+          <div className="hidden sm:flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              <span className="font-semibold text-gray-500">
+                ISO 9001 registered
+              </span>
+              <span className="font-semibold text-gray-500">
+                JOSCAR registered
+              </span>
+            </div>
             <div className="flex space-x-2">
               <a
                 href="https://www.linkedin.com/company/impactaltd/posts/?feedView=all"

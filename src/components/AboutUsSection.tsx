@@ -132,7 +132,7 @@ export default function AboutUsSection() {
                   service personal and flexible. Whether it's extending the life
                   of a container through repair and repainting or creating
                   bespoke solutions for complex handling challenges, we help
-                  customers cut costs, reduce waste, and stay operational.
+                  customers cut costs, reduce waste, and stay operational. Learn more about the experienced professionals who drive our success on <Link to="/team" className="text-impacta7 font-semibold hover:underline">our team page</Link>.
                 </p>
                 <p className="text-base leading-relaxed">
                   Impacta does more than just product delivery, we supply trust,

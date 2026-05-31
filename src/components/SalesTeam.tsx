@@ -9,12 +9,6 @@ const staff = [
     image: staff1,
     email: "Georgia@impacta.co.uk",
   },
-  {
-    name: "Ryan Skipton",
-    role: "Business Development Executive",
-    image: staff2,
-    email: "Ryan@impacta.co.uk",
-  },
 ];
 
 export default function SalesTeam() {
@@ -30,11 +24,11 @@ export default function SalesTeam() {
         Speak to Our Sales Team
       </motion.h2>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-6 sm:gap-8 md:gap-12">
         {staff.map((staff, i) => (
           <motion.div
             key={staff.name}
-            className="relative flex flex-col sm:flex-row items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl"
+            className="relative flex flex-col sm:flex-row items-center p-6 rounded-3xl bg-white/40 backdrop-blur-xl border border-white/50 shadow-2xl mx-auto max-w-xl"
             initial={{ opacity: 0, y: 40, scale: 0.95 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
@@ -47,9 +41,7 @@ export default function SalesTeam() {
             <img
               src={staff.image}
               alt={staff.name}
-              className={`w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover rounded-full border-2 border-gray-200 shadow sm:mr-6 md:mr-8 mb-4 sm:mb-0 ${
-                staff.name === "Ryan Skipton" ? "object-bottom" : ""
-              }`}
+              className={`w-24 h-24 sm:w-28 sm:h-28 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover rounded-full border-2 border-gray-200 shadow sm:mr-6 md:mr-8 mb-4 sm:mb-0`}
             />
             <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
               <p className="text-sm sm:text-base font-semibold text-gray-700 mb-1">
