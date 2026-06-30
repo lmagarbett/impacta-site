@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollProgressBar from "./ScrollProgressBar";
 import SEO from "./SEO";
 
 interface ServicePageTemplateProps {
@@ -66,6 +67,7 @@ export default function ServicePageTemplate({
         image={heroImage}
       />
       <Navbar defaultPage={serviceName} />
+      <ScrollProgressBar />
 
       <section
         className="relative text-white px-6 text-left overflow-hidden"

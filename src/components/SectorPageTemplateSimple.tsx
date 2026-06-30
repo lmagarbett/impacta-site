@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ScrollProgressBar from "./ScrollProgressBar";
 import SEO from "./SEO";
 
 interface SectorPageTemplateProps {
@@ -63,6 +64,7 @@ export default function SectorPageTemplate({
         image={heroImage}
       />
       <Navbar defaultPage={sectorName} />
+      <ScrollProgressBar />
 
       <section
         className="relative text-white px-6 text-left overflow-hidden"

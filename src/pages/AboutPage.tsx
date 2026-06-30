@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import AboutUsSection from "../components/AboutUsSection";
+import ScrollProgressBar from "../components/ScrollProgressBar";
 import SEO from "../components/SEO";
 
 export default function AboutPage() {
@@ -11,6 +12,7 @@ export default function AboutPage() {
         description="Founded in 1989, Impacta delivers steel, textile and plastic packaging solutions with end-to-end design, manufacturing and repair in the UK."
       />
       <Navbar defaultPage="About Us" />
+      <ScrollProgressBar />
       <AboutUsSection />
       <Footer />
     </div>
