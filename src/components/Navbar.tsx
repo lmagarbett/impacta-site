@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import biglogo2 from "../assets/biglogo2.png";
 import { Link } from "react-router-dom";
+import { copyToClipboard } from "../lib/clipboard";
 
 export default function Navbar({ defaultPage }: { defaultPage: string }) {
   const [scrolled, setScrolled] = useState(false);
@@ -93,6 +94,9 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
     servicesDropdownOpen,
   ]);
 
+  const handleCopyPhone = () => copyToClipboard("+44 01902 496307");
+  const handleCopyEmail = () => copyToClipboard("sales@impacta.co.uk");
+
   return (
     <>
       <div className="bg-gray-100 text-gray-600 text-xs py-2 px-6 fixed w-full top-0 left-0 z-50 border-b border-gray-300">
@@ -137,9 +141,14 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
                 />
               </svg>
 
-              <span className="font-semibold text-gray-500">
+              <button
+                type="button"
+                onClick={handleCopyPhone}
+                className="font-semibold text-gray-500 hover:text-impacta11 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-impacta11/40 rounded"
+                title="Click to copy phone number"
+              >
                 +44 01902 496307
-              </span>
+              </button>
             </div>
             <div className="flex items-center space-x-2">
               <svg
@@ -155,9 +164,14 @@ export default function Navbar({ defaultPage }: { defaultPage: string }) {
                 />
               </svg>
 
-              <span className="font-semibold text-gray-500">
+              <button
+                type="button"
+                onClick={handleCopyEmail}
+                className="font-semibold text-gray-500 hover:text-impacta11 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-impacta11/40 rounded"
+                title="Click to copy email address"
+              >
                 sales@impacta.co.uk
-              </span>
+              </button>
             </div>
           </div>
         </div>

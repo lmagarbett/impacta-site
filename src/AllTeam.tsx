@@ -1,19 +1,10 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import TeamMembers from "./components/TeamMembers";
 import warehouseBgImg from "./assets/warehouse-bg.jpeg";
 export default function AllTeam() {
-  const [_scrolled, _setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      _setScrolled(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+ 
 
   return (
     <div className="bg-white text-gray-800">

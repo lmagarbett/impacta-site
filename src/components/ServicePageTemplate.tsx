@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+ 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
@@ -51,15 +51,7 @@ export default function ServicePageTemplate({
   canonical,
   relatedServices,
 }: ServicePageTemplateProps) {
-  const [_scrolled, _setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      _setScrolled(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+ 
 
   return (
     <div className="bg-white text-gray-800">

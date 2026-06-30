@@ -7,6 +7,7 @@ const SalesTeam = lazy(() => import("./components/SalesTeam"));
 const GoogleMapLazy = lazy(() => import("./components/GoogleMap"));
 import SEO from "./components/SEO";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { copyToClipboard } from "./lib/clipboard";
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -15,22 +16,14 @@ export default function ContactPage() {
     phone: "",
     message: "",
   });
-  const [_scrolled, _setScrolled] = useState(false);
-  const [_menuOpen, _setMenuOpen] = useState(false);
-  const [_activePage, _setActivePage] = useState("Contact");
+  
   const [mapInView, setMapInView] = useState(false);
   const mapRef = useRef<HTMLDivElement | null>(null);
   const [submitting, setSubmitting] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  useEffect(() => {
-    const onScroll = () => {
-      _setScrolled(window.scrollY > 100);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  
 
   // Defer loading the map until its section is visible
   useEffect(() => {
@@ -199,11 +192,25 @@ export default function ContactPage() {
               </div>
               <div>
                 <h3 className="font-bold">Phone:</h3>
-                <p>+44 01902496307</p>
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard("+44 01902496307")}
+                  className="text-gray-700 hover:text-impacta1 underline underline-offset-2 transition focus:outline-none focus:ring-2 focus:ring-impacta1/40 rounded"
+                  title="Click to copy phone number"
+                >
+                  +44 01902496307
+                </button>
               </div>
               <div>
                 <h3 className="font-bold">Email:</h3>
-                <p>sales@impacta.co.uk</p>
+                <button
+                  type="button"
+                  onClick={() => copyToClipboard("sales@impacta.co.uk")}
+                  className="text-gray-700 hover:text-impacta1 underline underline-offset-2 transition focus:outline-none focus:ring-2 focus:ring-impacta1/40 rounded"
+                  title="Click to copy email address"
+                >
+                  sales@impacta.co.uk
+                </button>
               </div>
               <div>
                 <h3 className="font-bold">Opening Hours:</h3>

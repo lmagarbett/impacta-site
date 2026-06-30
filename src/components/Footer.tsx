@@ -2,9 +2,17 @@ import biglogo from '../assets/biglogo.png';
 import linkedin from '../assets/linkedin.png';
 import x from '../assets/x.svg';
 import { Link } from 'react-router-dom';
+import { copyToClipboard } from '../lib/clipboard';
 
 export default function Footer() {
-    return (
+    const handleCopyPhone = () => copyToClipboard('+44 01902 496307');
+    const handleCopyEmail = () => copyToClipboard('sales@impacta.co.uk');
+
+  const startYear = 2021;
+  const currentYear = new Date().getFullYear();
+  const yearDisplay = startYear === currentYear ? `${startYear}` : `${startYear}-${currentYear}`;
+
+  return (
         <footer className="bg-impacta11 text-white py-12">
   <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
     
@@ -47,11 +55,28 @@ export default function Footer() {
     <div>
       <h3 className="text-lg font-semibold mb-4">Get in Touch</h3>
       <p className="text-sm text-gray-300">Field St, Bradley, <br />Bilston WV14 8RW</p>
-      <p className="text-sm mt-2"><strong>Phone:</strong> +44 01902 496307</p>
-      <p className="text-sm"><strong>Email:</strong> sales@impacta.co.uk</p>
-    </div>
-
-    <div>
+      <p className="text-sm mt-2">
+        <strong>Phone:</strong>{' '}
+        <button
+          type="button"
+          onClick={handleCopyPhone}
+          className="text-gray-300 hover:text-bluehover underline underline-offset-2 transition focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+          title="Click to copy phone number"
+        >
+          +44 01902 496307
+        </button>
+      </p>
+      <p className="text-sm">
+        <strong>Email:</strong>{' '}
+        <button
+          type="button"
+          onClick={handleCopyEmail}
+          className="text-gray-300 hover:text-bluehover underline underline-offset-2 transition focus:outline-none focus:ring-2 focus:ring-white/50 rounded"
+          title="Click to copy email address"
+        >
+          sales@impacta.co.uk
+        </button>
+      </p>
       <h3 className="text-lg font-semibold mb-4">Social</h3>
       <div className="flex gap-3">
         <a href="https://www.linkedin.com/company/impactaltd/posts/?feedView=all" aria-label="LinkedIn" rel="noopener noreferrer" className="hover:text-bluehover transition"><img src={linkedin} alt="Linked In" className="h-4 mb-3" /></a>
@@ -61,7 +86,7 @@ export default function Footer() {
   </div>
 
   <div className="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-    © 2021-2025 Impacta Ltd. All rights reserved.
+    © {yearDisplay} Impacta Ltd. All rights reserved.
   </div>
 </footer>
     )
