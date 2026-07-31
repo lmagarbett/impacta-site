@@ -3,6 +3,8 @@ import Navbar from "../components/Navbar";
 import galleryHero from "../assets/hero/galleryhero.jpg";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import { useState } from "react";
+import Lightbox from "../components/Lightbox";
 import g1 from "../assets/gallery/gallery1.jpg";
 import g2 from "../assets/gallery/gallery2.jpg";
 import g3 from "../assets/gallery/gallery3.jpg";
@@ -39,8 +41,11 @@ import g33 from "../assets/gallery/image00012.jpeg";
 import g34 from "../assets/gallery/image00013.jpeg";
 import g35 from "../assets/gallery/image00014.jpeg";
 import g36 from "../assets/gallery/1775895646928.jpg";
+import g37 from "../assets/gallery/1784033259177.jpg";
+import g38 from "../assets/gallery/1784033263060.jpg";
 
 export default function GalleryPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
   const images: { src: string; alt: string }[] = [
     { src: g1, alt: "Soft Flight Case" },
     { src: g2, alt: "Steel Trolley" },
@@ -78,6 +83,8 @@ export default function GalleryPage() {
     { src: g34, alt: "Custom Foam Inserts" },
     { src: g35, alt: "High-Impact Polypropylene Tray" },
     { src: g36, alt: "Yellow fabricated stillage" },
+    { src: g37, alt: "Component Cells" },
+    { src: g38, alt: "Impacta Tag" },
   ];
 
   return (
@@ -155,9 +162,11 @@ export default function GalleryPage() {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {images.map((img, i) => (
-              <figure
+              <button
                 key={i}
-                className="relative overflow-hidden rounded-sm shadow-sm bg-white"
+                type="button"
+                onClick={() => setOpenIndex(i)}
+                className="relative overflow-hidden rounded-sm shadow-sm bg-white text-left p-0"
               >
                 <img
                   src={img.src}
@@ -172,7 +181,7 @@ export default function GalleryPage() {
                     {img.alt}
                   </figcaption>
                 )}
-              </figure>
+              </button>
             ))}
           </div>
         </div>
@@ -194,6 +203,13 @@ export default function GalleryPage() {
               </Link>
             </section>
       
+            {openIndex !== null && (
+              <Lightbox
+                images={images}
+                initialIndex={openIndex}
+                onClose={() => setOpenIndex(null)}
+              />
+            )}
             <Footer />
     </div>
   );
