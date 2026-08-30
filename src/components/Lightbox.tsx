@@ -44,7 +44,7 @@ export default function Lightbox({
       <button
         aria-label="Close"
         onClick={onClose}
-        className="absolute top-6 right-6 text-white bg-black/40 hover:bg-black/60 p-2 rounded-full"
+        className="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 text-lg text-white hover:bg-black/60 sm:top-6 sm:right-6"
       >
         ✕
       </button>
@@ -55,16 +55,16 @@ export default function Lightbox({
           e.stopPropagation();
           prev();
         }}
-        className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 items-center justify-center w-12 h-12 rounded-full bg-black/40 text-white hover:bg-black/60"
+        className="absolute left-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white shadow-lg hover:bg-black/60 sm:left-6 sm:h-12 sm:w-12"
       >
         ‹
       </button>
 
-      <div className="max-w-5xl max-h-[86vh] px-4 flex items-center">
+      <div className="flex max-h-[82vh] max-w-[92vw] items-center justify-center px-12 sm:px-16">
         <img
           src={images[index].src}
           alt={images[index].alt || ""}
-          className="max-h-[80vh] w-auto max-w-full object-contain mx-auto"
+          className="max-h-[82vh] w-auto max-w-full rounded-md object-contain shadow-2xl"
         />
       </div>
 
@@ -74,12 +74,12 @@ export default function Lightbox({
           e.stopPropagation();
           next();
         }}
-        className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 items-center justify-center w-12 h-12 rounded-full bg-black/40 text-white hover:bg-black/60"
+        className="absolute right-3 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-2xl text-white shadow-lg hover:bg-black/60 sm:right-6 sm:h-12 sm:w-12"
       >
         ›
       </button>
 
-      <div className="absolute bottom-6 left-0 right-0 text-center text-sm text-white/90">
+      <div className="absolute bottom-4 left-0 right-0 px-4 text-center text-sm text-white/90 sm:bottom-6">
         {images[index].alt}
       </div>
     </div>
